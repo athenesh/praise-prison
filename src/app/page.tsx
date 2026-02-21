@@ -813,7 +813,7 @@ export default function Home() {
       <footer className="w-full mt-auto py-8 border-t border-zinc-800/50">
         <div className="max-w-4xl mx-auto px-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <div className="text-xs opacity-60">
+            <div className="text-xs text-zinc-500">
               © {new Date().getFullYear()} 긍정 교화소 (Praise Prison). All rights reserved.
             </div>
             <nav className="flex gap-6 text-xs">

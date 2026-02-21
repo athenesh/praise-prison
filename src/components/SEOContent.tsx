@@ -146,7 +146,7 @@ export default function SEOContent({ mood }: SEOContentProps) {
           </div>
         </div>
 
-        <div className={`mt-12 pt-8 border-t ${borderColor} text-sm text-center opacity-60`}>
+        <div className={`mt-12 pt-8 border-t ${borderColor} text-sm text-center ${textColor}`}>
           <p>
             긍정 교화소는 여러분의 정신 건강과 행복을 응원합니다. 
             힘든 하루 끝에 작은 위로가 필요할 때, 언제든 다시 찾아와주세요.
