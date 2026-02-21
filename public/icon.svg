@@ -1,0 +1,22 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background Rounded Rect -->
+  <rect width="32" height="32" rx="8" fill="#18181b"/>
+  
+  <!-- Prison Bars -->
+  <rect x="8" y="6" width="2" height="20" rx="1" fill="#3f3f46"/>
+  <rect x="15" y="6" width="2" height="20" rx="1" fill="#3f3f46"/>
+  <rect x="22" y="6" width="2" height="20" rx="1" fill="#3f3f46"/>
+  
+  <!-- Glowing Heart -->
+  <path d="M16 24.5L14.55 23.18C9.4 18.51 6 15.43 6 11.65C6 8.57 8.42 6.15 11.5 6.15C13.24 6.15 14.91 6.96 16 8.24C17.09 6.96 18.76 6.15 20.5 6.15C23.58 6.15 26 8.57 26 11.65C26 15.43 22.6 18.51 17.45 23.19L16 24.5Z" fill="#0ea5e9" fill-opacity="0.9">
+    <animate attributeName="fill-opacity" values="0.7;1;0.7" dur="2s" repeatCount="indefinite" />
+  </path>
+  
+  <!-- Sparkles -->
+  <circle cx="24" cy="8" r="1.5" fill="#f0f9ff">
+    <animate attributeName="opacity" values="0;1;0" dur="1.5s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="8" cy="22" r="1" fill="#f0f9ff">
+    <animate attributeName="opacity" values="0;1;0" dur="2s" begin="0.5s" repeatCount="indefinite" />
+  </circle>
+</svg>
