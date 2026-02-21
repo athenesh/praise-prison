@@ -21,10 +21,10 @@ export default function Contact() {
               </h3>
               <p className="mb-2">
                 <a 
-                  href="mailto:support@praiseprison.com" 
+                  href="mailto:usallgloballlc@gmail.com" 
                   className="text-sky-400 hover:underline text-lg md:text-xl font-semibold"
                 >
-                  support@praiseprison.com
+                  usallgloballlc@gmail.com
                 </a>
               </p>
               <p className="text-sm text-zinc-400">
@@ -38,10 +38,10 @@ export default function Contact() {
               </h3>
               <p className="mb-2">
                 <a 
-                  href="mailto:business@praiseprison.com" 
+                  href="mailto:usallgloballlc@gmail.com" 
                   className="text-sky-400 hover:underline text-lg md:text-xl font-semibold"
                 >
-                  business@praiseprison.com
+                  usallgloballlc@gmail.com
                 </a>
               </p>
               <p className="text-sm text-zinc-400">
@@ -55,10 +55,10 @@ export default function Contact() {
               </h3>
               <p className="mb-2">
                 <a 
-                  href="mailto:bugs@praiseprison.com" 
+                  href="mailto:usallgloballlc@gmail.com" 
                   className="text-sky-400 hover:underline text-lg md:text-xl font-semibold"
                 >
-                  bugs@praiseprison.com
+                  usallgloballlc@gmail.com
                 </a>
               </p>
               <p className="text-sm text-zinc-400">
@@ -92,8 +92,8 @@ export default function Contact() {
                 <span className="text-2xl">🌐</span> Website
               </h3>
               <p>
-                <a href="/" className="text-sky-400 hover:underline text-lg font-semibold">
-                  praiseprison.com
+                <a href="https://praise-prison.vercel.app" className="text-sky-400 hover:underline text-lg font-semibold">
+                  praise-prison.vercel.app
                 </a>
               </p>
             </div>
@@ -133,8 +133,8 @@ export default function Contact() {
               <h3 className="text-lg font-bold text-zinc-300 mb-2">Q: 버그를 발견했어요!</h3>
               <p className="text-zinc-400 leading-relaxed">
                 A: 빠른 대응을 위해{' '}
-                <a href="mailto:bugs@praiseprison.com" className="text-sky-400 hover:underline">
-                  bugs@praiseprison.com
+                <a href="mailto:usallgloballlc@gmail.com" className="text-sky-400 hover:underline">
+                  usallgloballlc@gmail.com
                 </a>
                 으로 상세한 내용과 함께 스크린샷을 보내주시면 감사하겠습니다. 
                 사용하신 브라우저 및 기기 정보도 함께 알려주시면 문제 해결에 큰 도움이 됩니다.
@@ -145,8 +145,8 @@ export default function Contact() {
               <h3 className="text-lg font-bold text-zinc-300 mb-2">Q: 새로운 기능을 제안하고 싶어요!</h3>
               <p className="text-zinc-400 leading-relaxed">
                 A: 훌륭합니다! 사용자 피드백은 서비스 개선에 가장 중요한 요소입니다.{' '}
-                <a href="mailto:support@praiseprison.com" className="text-sky-400 hover:underline">
-                  support@praiseprison.com
+                <a href="mailto:usallgloballlc@gmail.com" className="text-sky-400 hover:underline">
+                  usallgloballlc@gmail.com
                 </a>
                 으로 자유롭게 의견을 보내주세요. 
                 모든 제안은 검토 후 우선순위에 따라 개발 계획에 반영됩니다.
@@ -157,8 +157,8 @@ export default function Contact() {
               <h3 className="text-lg font-bold text-zinc-300 mb-2">Q: 광고 협업을 제안하고 싶어요.</h3>
               <p className="text-zinc-400 leading-relaxed">
                 A: 감사합니다! 광고, 파트너십, 콜라보레이션 등 비즈니스 관련 문의는{' '}
-                <a href="mailto:business@praiseprison.com" className="text-sky-400 hover:underline">
-                  business@praiseprison.com
+                <a href="mailto:usallgloballlc@gmail.com" className="text-sky-400 hover:underline">
+                  usallgloballlc@gmail.com
                 </a>
                 으로 연락주시기 바랍니다. 
                 제안서와 함께 구체적인 내용을 보내주시면 검토 후 답변드리겠습니다.
@@ -204,7 +204,7 @@ export default function Contact() {
             </ul>
             <div className="text-center mt-6">
               <a 
-                href="mailto:support@praiseprison.com?subject=긍정%20교화소%20피드백"
+                href="mailto:usallgloballlc@gmail.com?subject=긍정%20교화소%20피드백"
                 className="inline-block bg-sky-500 text-white px-6 py-3 rounded-lg hover:bg-sky-400 transition-colors font-semibold"
               >
                 📝 피드백 보내기

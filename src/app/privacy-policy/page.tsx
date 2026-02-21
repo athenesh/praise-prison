@@ -162,14 +162,14 @@ export default function PrivacyPolicy() {
             </p>
             <p className="mb-2">
               <strong className="text-zinc-200">이메일:</strong>{' '}
-              <a href="mailto:support@praiseprison.com" className="text-sky-400 hover:underline">
-                support@praiseprison.com
+              <a href="mailto:usallgloballlc@gmail.com" className="text-sky-400 hover:underline">
+                usallgloballlc@gmail.com
               </a>
             </p>
             <p className="mb-2">
               <strong className="text-zinc-200">웹사이트:</strong>{' '}
-              <a href="/" className="text-sky-400 hover:underline">
-                praiseprison.com
+              <a href="https://praise-prison.vercel.app" className="text-sky-400 hover:underline">
+                praise-prison.vercel.app
               </a>
             </p>
             <p className="text-sm text-zinc-500 mt-4">

@@ -45,16 +45,16 @@ export default function RootLayout({
       <head>
         {/* Google AdSense Verification Meta Tag */}
         <meta name="google-adsense-account" content="ca-pub-7379075324068520" />
-        {/* Google AdSense Script */}
-        <Script
-          async
-          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_ADSENSE_PUB_ID}`}
-          crossOrigin="anonymous"
-          strategy="afterInteractive"
-        />
       </head>
       <body className={inter.className}>
         {children}
+        {/* Google AdSense Script - Moved outside head to avoid data-nscript warning */}
+        <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7379075324068520"
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );

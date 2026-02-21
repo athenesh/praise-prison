@@ -161,26 +161,26 @@ export default function About() {
             <ul className="space-y-3">
               <li>
                 <strong className="text-zinc-200">📧 General Inquiries:</strong>{' '}
-                <a href="mailto:support@praiseprison.com" className="text-sky-400 hover:underline">
-                  support@praiseprison.com
+                <a href="mailto:usallgloballlc@gmail.com" className="text-sky-400 hover:underline">
+                  usallgloballlc@gmail.com
                 </a>
               </li>
               <li>
                 <strong className="text-zinc-200">💼 Business & Partnerships:</strong>{' '}
-                <a href="mailto:business@praiseprison.com" className="text-sky-400 hover:underline">
-                  business@praiseprison.com
+                <a href="mailto:usallgloballlc@gmail.com" className="text-sky-400 hover:underline">
+                  usallgloballlc@gmail.com
                 </a>
               </li>
               <li>
                 <strong className="text-zinc-200">🐛 Bug Reports:</strong>{' '}
-                <a href="mailto:bugs@praiseprison.com" className="text-sky-400 hover:underline">
-                  bugs@praiseprison.com
+                <a href="mailto:usallgloballlc@gmail.com" className="text-sky-400 hover:underline">
+                  usallgloballlc@gmail.com
                 </a>
               </li>
               <li>
                 <strong className="text-zinc-200">🌐 Website:</strong>{' '}
-                <a href="/" className="text-sky-400 hover:underline">
-                  praiseprison.com
+                <a href="https://praise-prison.vercel.app" className="text-sky-400 hover:underline">
+                  praise-prison.vercel.app
                 </a>
               </li>
             </ul>
