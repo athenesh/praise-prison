@@ -92,6 +92,14 @@ export default function Home() {
         // Ideally we should persist it, but for now this is fine.
         setCalcResult(result);
       }
+    } else if (sharedMode === 'meme') {
+      // Handle shared meme view
+      setIsSharedView(true);
+      setMood('prison'); // Start at prison so they can use it
+      setMemeUrl(params.get('meme') || '');
+      setPraiseText(params.get('text') || '');
+      setCategory(params.get('category') || 'awareness');
+      setShowMeme(true); // Show meme modal immediately
     }
   }, []);
 
@@ -138,6 +146,25 @@ export default function Home() {
     window.history.pushState({}, '', '/');
     setIsSharedView(false);
     reset();
+  };
+
+  const handleMemeShare = async () => {
+    const params = new URLSearchParams({
+      mode: 'meme',
+      meme: memeUrl,
+      text: praiseText.split('!')[0] + '!',
+      category: category
+    });
+    
+    const shareUrl = `${window.location.origin}?${params.toString()}`;
+
+    try {
+      await navigator.clipboard.writeText(shareUrl);
+      alert("짤방 링크가 복사되었습니다! 친구들에게 공유해보세요. 😂");
+    } catch (err) {
+      console.error("공유 실패:", err);
+      alert("링크 복사에 실패했습니다. URL을 직접 복사해주세요.");
+    }
   };
 
   const LOADING_ADS = [
@@ -720,7 +747,11 @@ export default function Home() {
                       다른 죄 고백하기
                     </button>
                     <button
-                      onClick={() => setShowMeme(true)}
+                      onClick={() => {
+                        console.log('Meme URL:', memeUrl);
+                        console.log('Praise Text:', praiseText);
+                        setShowMeme(true);
+                      }}
                       className="flex-1 md:flex-none w-full md:w-52 px-4 md:px-6 py-3 rounded-full bg-yellow-400 text-yellow-900 text-sm md:text-base font-semibold hover:bg-yellow-300 shadow-lg transition-all whitespace-nowrap"
                     >
                       🤪 짤방 처방받기
@@ -780,31 +811,84 @@ export default function Home() {
               {/* AdSense Banner - Temporarily disabled until approval */}
               {/* <AdBanner slot="0987654321" /> */}
             </div>
-            
-            {/* Meme Modal */}
-            {showMeme && (
-              <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 animate-fade-in p-4" onClick={() => setShowMeme(false)}>
-                <div className="bg-white p-4 rounded-xl max-w-lg w-full relative" onClick={e => e.stopPropagation()}>
-                  <button 
-                    onClick={() => setShowMeme(false)}
-                    className="absolute top-2 right-2 text-2xl opacity-50 hover:opacity-100"
-                  >
-                    ×
-                  </button>
-                  <h3 className="text-xl font-bold mb-4 text-center text-zinc-800">💊 오늘의 짤방 처방</h3>
-                  <div className="aspect-video w-full bg-gray-100 rounded-lg overflow-hidden flex items-center justify-center">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={memeUrl} alt="Meme Prescription" className="max-w-full max-h-[300px] object-contain" />
-                  </div>
-                  <p className="text-center mt-4 text-sm text-gray-500 font-medium">
-                    "{praiseText.split('!')[0]}!"
-                  </p>
-                </div>
-              </div>
-            )}
           </div>
         )}
       </div>
+
+      {/* Meme Modal - Global (outside mood conditions) */}
+      {showMeme && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 animate-fade-in p-4" onClick={() => setShowMeme(false)}>
+          <div className="bg-white p-4 md:p-6 rounded-xl max-w-lg w-full relative" onClick={e => e.stopPropagation()}>
+            <button 
+              onClick={() => setShowMeme(false)}
+              className="absolute top-2 right-2 text-2xl opacity-50 hover:opacity-100 z-10"
+            >
+              ×
+            </button>
+            
+            {/* Header for shared view */}
+            {isSharedView && (
+              <div className="mb-4 text-center animate-bounce-in">
+                <div className="inline-block bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full text-sm font-bold shadow-sm">
+                  😂 친구가 보낸 짤방이 도착했습니다!
+                </div>
+              </div>
+            )}
+            
+            <h3 className="text-xl font-bold mb-4 text-center text-zinc-800">💊 오늘의 짤방 처방</h3>
+            <div className="aspect-video w-full bg-gray-100 rounded-lg overflow-hidden flex items-center justify-center">
+              {memeUrl ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img src={memeUrl} alt="Meme Prescription" className="max-w-full max-h-[300px] object-contain" onError={(e) => console.error('Image load failed:', memeUrl)} />
+              ) : (
+                <div className="text-gray-400 text-sm">짤방 로딩 중...</div>
+              )}
+            </div>
+            <p className="text-center mt-4 text-sm text-gray-500 font-medium break-keep px-2">
+              "{praiseText.split('!')[0]}!"
+            </p>
+            
+            {/* Button group with share functionality */}
+            <div className="flex gap-2 mt-6">
+              {!isSharedView ? (
+                <>
+                  <button
+                    onClick={() => setShowMeme(false)}
+                    className="flex-1 py-3 bg-gray-100 text-gray-600 rounded-lg hover:bg-gray-200 transition-colors font-semibold text-sm"
+                  >
+                    닫기
+                  </button>
+                  <button
+                    onClick={handleMemeShare}
+                    className="flex-1 py-3 bg-indigo-500 text-white rounded-lg hover:bg-indigo-400 transition-colors font-semibold flex items-center justify-center gap-2 shadow-lg shadow-indigo-500/30 text-sm"
+                  >
+                    <span>🔗</span> 짤방 공유
+                  </button>
+                </>
+              ) : (
+                <>
+                  <button
+                    onClick={() => {
+                      setShowMeme(false);
+                      setIsSharedView(false);
+                      window.history.pushState({}, '', '/');
+                    }}
+                    className="flex-1 py-3 bg-sky-600 text-white rounded-lg hover:bg-sky-500 transition-colors font-bold shadow-lg shadow-sky-500/30 animate-pulse text-sm"
+                  >
+                    나도 해보기 🚀
+                  </button>
+                  <button
+                    onClick={() => setShowMeme(false)}
+                    className="px-4 py-3 bg-gray-100 text-gray-600 rounded-lg hover:bg-gray-200 transition-colors font-semibold text-sm"
+                  >
+                    ×
+                  </button>
+                </>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* SEO Content Section */}
       <SEOContent mood={mood} />

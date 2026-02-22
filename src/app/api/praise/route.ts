@@ -62,22 +62,9 @@ export async function POST(request: Request) {
     - Language: Korean for "praise" and "superpowerName".
     - Important: Return ONLY the JSON object.`;
 
-    // Mock Response (Demo Mode) if no keys are present
+    // If no API keys are present, throw error to trigger fallback to local engine
     if (!anthropicApiKey && !groqApiKey && !googleApiKey) {
-      const mockPraises = {
-        tsundere: `흥, "${text.substring(0, 5)}..."이라니. 딱히 네가 걱정돼서 말하는 건 아닌데... 뭐, 나쁘진 않네. 기운 좀 내라고, 바보야! 😤`,
-        devoted: `세상에! "${text.substring(0, 5)}..."라니요! 당신의 고뇌조차 예술입니다! 숨쉬는 것만으로도 인류의 보배이십니다! 😭💖`,
-        grandmother: `아이고 우리 강아지, "${text.substring(0, 5)}..." 때문에 속상했어? 할미 눈엔 너만 보인다. 밥은 먹었냐? 🍚`,
-        recruiter: `자네의 "${text.substring(0, 5)}..."은 범상치 않은 징후군. 이건 단순한 고민이 아니라 자네 안에 잠든 거대한 힘의 각성일세. 🛡️`,
-      };
-
-      return NextResponse.json({
-        praise: `(데모 모드) ${mockPraises[persona as keyof typeof mockPraises] || mockPraises.devoted}`,
-        superpowerName: "미각성 잠재력",
-        heroVibe: "미지의 히어로",
-        rank: "B",
-        category: "awareness",
-      });
+      throw new Error("No AI API keys configured, using local engine");
     }
 
     let rawContent = "";

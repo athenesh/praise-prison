@@ -17,6 +17,7 @@ interface PraiseTemplate {
   meme?: string;
   superpower?: string;
   hero?: string;
+  category?: string; // Add category field
 }
 
 const KEYWORD_DB: PraiseTemplate[] = [
@@ -47,6 +48,7 @@ const KEYWORD_DB: PraiseTemplate[] = [
     meme: "/memes/this-is-fine.gif",
     superpower: "시간 왜곡 (Time Dilation)",
     hero: "닥터 스트레인지",
+    category: "chaos",
   },
   {
     keywords: [
@@ -84,6 +86,7 @@ const KEYWORD_DB: PraiseTemplate[] = [
     meme: "/memes/disaster-girl.jpg",
     superpower: "감정 현실 조작 (Reality Warp)",
     hero: "스칼렛 위치",
+    category: "prophecy",
   },
   {
     keywords: ["실수", "망함", "실패", "버그", "에러", "0점", "꼴등", "바보"],
@@ -112,6 +115,7 @@ const KEYWORD_DB: PraiseTemplate[] = [
     meme: "/memes/thumbs-up-cat.gif",
     superpower: "무한 통찰안 (Infinite Insight)",
     hero: "아이언맨",
+    category: "foresight",
   },
   {
     keywords: ["돈", "가난", "거지", "비싸", "통장", "월급"],
@@ -140,6 +144,7 @@ const KEYWORD_DB: PraiseTemplate[] = [
     meme: "/memes/success-kid.jpg",
     superpower: "잠재적 우주 재벌 (Cosmic Asset)",
     hero: "블랙 팬서",
+    category: "success",
   },
   {
     keywords: ["주말", "휴일", "술", "파티", "놀자"],
@@ -168,6 +173,7 @@ const KEYWORD_DB: PraiseTemplate[] = [
     meme: "/memes/leo-cheers.gif",
     superpower: "번개 같은 추진력 (Lightning Drive)",
     hero: "토르",
+    category: "success",
   },
 ];
 
@@ -215,9 +221,9 @@ const HEROES = ["스파이더맨", "캡틴 마블", "헐크", "블랙 위도우"
 export const CATEGORY_MEMES: { [key: string]: string[] } = {
   prophecy: ["/memes/disaster-girl.jpg", "/memes/this-is-fine.gif"],
   foresight: ["/memes/success-kid.jpg", "/memes/leo-cheers.gif"],
-  awareness: ["/memes/thumbs-up-cat.gif", "/memes/this-is-fine.jpg"],
+  awareness: ["/memes/thumbs-up-cat.gif", "/memes/this-is-fine.gif"],
   chaos: ["/memes/this-is-fine.gif", "/memes/disaster-girl.jpg"],
-  success: ["/memes/success-kid.jpg", "/memes/leo-cheers.jpg", "/memes/leo-cheers.gif"],
+  success: ["/memes/success-kid.jpg", "/memes/leo-cheers.gif"],
 };
 
 export function getMemeByCategory(category: string): string {
@@ -241,7 +247,7 @@ export function generatePraise(
         superpowerName: template.superpower || SUPERPOWERS[Math.floor(Math.random() * SUPERPOWERS.length)],
         heroVibe: template.hero || HEROES[Math.floor(Math.random() * HEROES.length)],
         rank: RANKS[Math.floor(Math.random() * RANKS.length)],
-        category: "success",
+        category: template.category || "awareness", // Use template category
       };
     }
   }
